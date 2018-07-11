@@ -14,11 +14,11 @@ With this option you are going to enrol a list of known users from a file with o
 <p>
 <b> The firstline </b> the empty lines or unknown accounts will be skipped. </p>
 <p>
-The file may contains several columns, separated by a comma, a semi-column or a tabulation.
+The file may contain several columns, separated by a comma, a semi-column or a tabulation.
 <br/>
-<b>The first one must contains a unique account identifier : idnumber (by default) login or email  </b> of the target user. <br/>
+<b>The first one must contain a unique account identifier : idnumber (by default) login or email  </b> of the target user. <br/>
 
-The second <b>if present,</b> contains the group name in wich you want that user be be added. <br/>
+The second <b>if present,</b> contains the group name in which you want that user be be added. <br/>
 
 You may repeat this operation at will without damages, for example if you forgot the group for some users.
 </p>
@@ -33,9 +33,9 @@ With this option you are going to unenrol a list on users from a file with one a
 <b> The firstline </b> the empty lines or unknown accounts will be skipped. </p>
 </p>
 <p>
-The file may contains several columns, separated by a comma, a semi-column or a tabulation.
+The file may contain several columns, separated by a comma, a semi-column or a tabulation.
 <br/>
-<b>The first one must contains a unique account identifier : idnumber (by default) login or email  </b> of the target user. <br/>
+<b>The first one must contain a unique account identifier : idnumber (by default) login or email  </b> of the target user. <br/>
 
 Other columns, if present, will be ignored. Thus the file can be the same as the one user to mass enrol users into this course.<br/>
 
@@ -49,36 +49,38 @@ $string['unenroll'] = 'Unenrol them from my course';
 $string['mailreport'] = 'Send me a mail report';
 $string['creategroups'] = 'Create group(s) if needed';
 $string['creategroupings'] = 'Create  grouping(s) if needed';
-$string['firstcolumn'] = 'First column contains';
+$string['firstcolumn'] = 'First column contain';
 $string['roleassign'] = 'Role to assign';
 $string['idnumber'] = 'Id number';
 $string['username'] = 'Login';
 $string['mail_enrolment_subject'] = 'Bulk enrolments on {$a}';
 $string['mail_unenrolment_subject'] = 'Bulk unenrolments on {$a}';
 $string['mail_enrolment']='
-Hello,
-You just enroled the following list of users to your course \'{$a->course}\'.
+Dear {$a->username},
+
+You just enrolled the following list of users to your course \'{$a->course}\'.
 Here is a report of operations :
 {$a->report}
-Sincerly.
+Sincerely.
 ';
 $string['mail_unenrolment']='
-Hello,
+Dear {$a->username} ,
+
 You just unenroled the following list of users to your course \'{$a->course}\'.
 Here is a report of operations :
 {$a->report}
 Sincerly.
 ';
 $string['email_sent'] = 'email sent to {$a}';
-$string['im:using_role'] = 'Enroling users as : {$a} ';
+$string['im:using_role'] = 'Enrolling users as : {$a} ';
 $string['im:opening_file'] = 'Opening file : {$a} ';
 $string['im:user_unknown'] = '{$a} unknown - skipping line';
-$string['im:already_in'] = '{$a} already enroled ';
-$string['im:enrolled_ok'] = '{$a} enroled ';
-$string['im:error_in'] = 'error enroling {$a}';
-$string['im:not_in'] = '{$a} NOT enroled ';
-$string['im:unenrolled_ok'] = '{$a} unenroled ';
-$string['im:error_out'] = 'error unenroling {$a}';
+$string['im:already_in'] = '{$a} already enrolled ';
+$string['im:enrolled_ok'] = '{$a} enrolled ';
+$string['im:error_in'] = 'error enrolling {$a}';
+$string['im:not_in'] = '{$a} NOT enrolled ';
+$string['im:unenrolled_ok'] = '{$a} unenrolled ';
+$string['im:error_out'] = 'error unenrolling {$a}';
 
 $string['im:error_addg'] = 'error adding group {$a->groupe}  to course {$a->courseid} ';
 $string['im:error_g_unknown'] = 'error unkown group {$a} ';
@@ -87,8 +89,8 @@ $string['im:error_add_g_grp'] = 'error adding group {$a->groupe} to grouping {$a
 $string['im:and_added_g'] = ' and added to Moodle\'s  group  {$a}';
 $string['im:error_adding_u_g'] = 'error adding to group  {$a}';
 $string['im:already_in_g'] = ' already in group {$a}';
-$string['im:stats_i'] = '{$a} enroled';
-$string['im:stats_ui'] = '{$a} unenroled';
+$string['im:stats_i'] = '{$a} enrolled';
+$string['im:stats_ui'] = '{$a} unenrolled';
 $string['im:stats_g'] = '{$a->nb} group(s) created : {$a->what}';
 $string['im:stats_grp'] = '{$a->nb} grouping(s) created : {$a->what}';
 $string['im:err_opening_file'] = 'error opening file {$a}';
@@ -104,16 +106,16 @@ With this option you are going to enrol a list of known users from a file with o
 <b> The firstline </b> the empty lines or unknown accounts will be skipped. </p>
 
 <p>
-The file may contains one or two columns, separated by a comma, a semi-column or a tabulation.
+The file may contain one or two columns, separated by a comma, a semi-column or a tabulation.
 
 You should prepare it from your usual spreadsheet program from official lists of students, for example,
 and add if needed a column with groups to which you want these users to be added. Finally export it as CSV. (*)</p>
 
 <p>
-<b> The first one must contains a unique account identifier </b>: idnumber (by default) login or email  of the target user. (**). </p>
+<b> The first one must contain a unique account identifier </b>: idnumber (by default) login or email  of the target user. (**). </p>
 
 <p>
-The second <b>if present,</b> contains the group name in wich you want that user to be added. </p>
+The second <b>if present,</b> contains the group name in which you want that user to be added. </p>
 
 <p>
 If the group name does not exist, it will be created in your course, together with a grouping of the same name to which the group will be added.
@@ -130,12 +132,12 @@ You may unselect options to create groups and groupings if you are sure that the
 </p>
 
 <p>
-By default the users will be enroled as students but you may select other roles that you are allowed to manage (teacher, non editing teacher
+By default the users will be enrolled as students but you may select other roles that you are allowed to manage (teacher, non editing teacher
 or any custom roles)
 </p>
 
 <p>
-You may repeat this operation at will without dammages, for example if you forgot or mispelled the target group.
+You may repeat this operation at will without damages, for example if you forgot or misspelled the target group.
 </p>
 
 
@@ -208,13 +210,13 @@ With this option you are going to unenrol a list of users from a file with one a
 <b> The firstline </b> the empty lines or unknown accounts will be skipped. </p>
 
 <p>
-The file may contains several columns, separated by a comma, a semi-column or a tabulation.
+The file may contain several columns, separated by a comma, a semi-column or a tabulation.
 
 You should prepare it from your usual spreadsheet program from an official lists of students, for example,
 by exporting the course gradebook to CSV, or use the very same file as the one used to mass enrol users. (*)</p>
 
 <p>
-<b> The first one must contains a unique account identifier </b>: idnumber (by default) login or email  of the target user. (**). </p>
+<b> The first one must contain a unique account identifier </b>: idnumber (by default) login or email  of the target user. (**). </p>
 
 <p>
 All other columns will be ignored. </p>
@@ -226,7 +228,7 @@ or any custom roles)
 </p>
 
 <p>
-You may repeat this operation at will without dammages, for example if you forgot some users to unenrol.
+You may repeat this operation at will without damages, for example if you forgot some users to unenrol.
 </p>
 
 
