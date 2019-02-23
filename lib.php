@@ -38,7 +38,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param course_context      $context
  * @return void
  */
-function local_mass_enroll_extends_settings_navigation(settings_navigation $navigation, $context) {
+function local_mass_enroll_extend_settings_navigation(settings_navigation $navigation, $context) {
     global $CFG;
     // If not in a course context, then leave
     if ($context == null || $context->contextlevel != CONTEXT_COURSE) {
@@ -126,6 +126,9 @@ function mass_enroll($cir, $course, $context, $data) {
         if (empty ($fields))
             continue;
 
+        if (empty($fields[0]))
+            continue;
+
         // print_r($fields);
         // $enrollablecount++;
         // continue;
@@ -139,9 +142,9 @@ function mass_enroll($cir, $course, $context, $data) {
             continue;
         }
         //already enroled ?
-       // if (user_has_role_assignment($user->id, $roleid, $context->id)) {
+        if (user_has_role_assignment($user->id, $roleid, $context->id)) {
        // we DO NOT support multiple roles in a course 
-        if ($ue = $DB->get_record('user_enrolments', array('enrolid'=>$instance->id, 'userid'=>$user->id))) {
+       // if ($ue = $DB->get_record('user_enrolments', array('enrolid'=>$instance->id, 'userid'=>$user->id))) {
             $result .= get_string('im:already_in', 'local_mass_enroll', fullname($user));
 
         } else {
@@ -282,6 +285,9 @@ function mass_unenroll($cir, $course, $context, $data) {
         $a = new StdClass();
 
         if (empty ($fields))
+            continue;
+
+        if (empty($fields[0]))
             continue;
     
         // 1rst column = id Moodle (idnumber,username or email)    
